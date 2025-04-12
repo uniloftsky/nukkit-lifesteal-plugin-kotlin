@@ -1,0 +1,10 @@
+name: LifestealPlugin
+main: net.uniloftsky.nukkit.lifesteal.LifestealPlugin
+version: "${pom.version}"
+api: [ "1.0.0" ]
+author: uniloftsky
+description: Lifesteal plugin
+permissions:
+  uniloftsky.nukkit.lifesteal:
+    default: op
+    description: Permission that defines if the lifesteal is enabled for the player
