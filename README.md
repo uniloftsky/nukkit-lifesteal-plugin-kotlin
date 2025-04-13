@@ -1,6 +1,6 @@
 # Nukkit Lifesteal plugin
 
-Plugin for Nukkit that adds a Lifesteal feature. Written in Kotlin
+Plugin for Nukkit that adds a Lifesteal feature. Written in Kotlin. Origin: [Lifesteal Plugin](https://github.com/uniloftsky/nukkit-lifesteal-plugin)
 
 # Demo
 ![Demo GIF](./demo.gif)
