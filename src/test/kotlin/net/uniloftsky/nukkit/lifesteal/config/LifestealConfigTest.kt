@@ -123,7 +123,7 @@ class LifestealConfigTest {
     fun testGetWeapons() {
 
         // given
-        mockGetConfigContents(false)
+        mockGetConfigContents()
         mockRegisterWeapon(WEAPON_ID)
         config.init()
 

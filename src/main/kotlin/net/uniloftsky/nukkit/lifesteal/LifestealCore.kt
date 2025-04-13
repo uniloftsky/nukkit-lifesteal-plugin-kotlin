@@ -11,7 +11,8 @@ import net.uniloftsky.nukkit.lifesteal.config.LifestealConfig
  * Lifesteal core holds the logic regarding the lifesteal feature (incl. healing calculations, spawning particles etc.)
  */
 class LifestealCore(
-    private val config: LifestealConfig
+    private val config: LifestealConfig,
+    private val randomProvider: RandomProvider = DefaultRandomProvider
 ) {
 
     companion object {
@@ -34,7 +35,7 @@ class LifestealCore(
 
     fun healPlayer(target: Player, itemInHand: Item): Boolean {
         if (target.isOnline && target.isAlive && target.hasPermission(Permissions.LIFESTEAL_ABILITY_PERMISSION.permission)) {
-            val randomLifestealChance = ThreadLocalRandom.current().nextInt(100)
+            val randomLifestealChance = randomProvider.nextInt(100)
             val lifestealChance = config.lifestealChance
             if (randomLifestealChance <= lifestealChance) {
                 val lifestealWeapon = config.getWeapon(itemInHand.id)
@@ -60,7 +61,7 @@ class LifestealCore(
             val z = ThreadLocalRandom.current().nextDouble(-1.5, 1.5)
             val y = ThreadLocalRandom.current().nextDouble(1.0, 2.0)
             val locationToSpawnParticles = target.add(x, y, z)
-            target.level.addParticle(GenericParticle(locationToSpawnParticles, PARTICLE_ID))
+            target.getLevel().addParticle(GenericParticle(locationToSpawnParticles, PARTICLE_ID))
         }
     }
 
